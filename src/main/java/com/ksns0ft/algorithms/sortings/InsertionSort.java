@@ -18,9 +18,8 @@ public class InsertionSort {
 		for (int i = 1; i <= numbers.length - 1; i++) {
 			sourceElement = numbers[i];
 			int j = i;
-			while (j > 0 && numbers[j - 1] > sourceElement) {
+			for (; j > 0 && numbers[j - 1] > sourceElement; j--) {
 				numbers[j] = numbers[j - 1];
-				j--;
 			}
 
 			numbers[j] = sourceElement;

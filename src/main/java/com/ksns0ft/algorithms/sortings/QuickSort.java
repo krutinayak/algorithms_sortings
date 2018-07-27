@@ -1,7 +1,5 @@
 package com.ksns0ft.algorithms.sortings;
 
-import java.util.Arrays;
-
 import com.ksns0ft.algorithms.Util;
 
 public class QuickSort {
@@ -44,15 +42,10 @@ public class QuickSort {
 			if (startPointer > endPointer)
 				break;
 
-			/*System.out.println("n[startPointer]--startPointer--" + startPointer + "-" + numbers[startPointer]);
-			System.out.println("n[endPointer]--endPointer--" + endPointer + "--" + numbers[endPointer]);
-*/
 			Util.swap(numbers, startPointer++, endPointer--);
-
-			//System.out.println(Arrays.toString(numbers));
 		}
 
-		if (endPointer + 1 - startIndex > 1)
+		if (endPointer - startIndex + 1 > 1)
 			sort1(numbers, startIndex, endPointer - startIndex + 1);
 
 		if (startIndex + length - startPointer > 1)
@@ -64,6 +57,9 @@ public class QuickSort {
 
 		if (numbers[startIndex] < numbers[midIndex] && numbers[midIndex] < numbers[endIndex])
 			return midIndex;
+		if (numbers[startIndex] > numbers[midIndex] && numbers[midIndex] > numbers[endIndex])
+			return midIndex;
+
 		if (numbers[startIndex] < numbers[midIndex] && numbers[midIndex] > numbers[endIndex]
 				&& numbers[startIndex] < numbers[endIndex])
 			return endIndex;
@@ -71,8 +67,6 @@ public class QuickSort {
 				&& numbers[startIndex] > numbers[endIndex])
 			return startIndex;
 
-		if (numbers[startIndex] > numbers[midIndex] && numbers[midIndex] > numbers[endIndex])
-			return midIndex;
 		if (numbers[startIndex] > numbers[midIndex] && numbers[midIndex] < numbers[endIndex]
 				&& numbers[startIndex] > numbers[endIndex]) {
 			return endIndex;
