@@ -5,7 +5,7 @@ import com.ksns0ft.algorithms.Util;
 public class InsertionSort {
 
 	public static void main(String[] args) {
-		int[] numarray = { 1, 670, 5, 98, 15, 8, 5 };
+		int[] numarray = { 3, 5, 6, 2, 34, 1, 343 };
 		Util.print("Insertion Sort Before-->", numarray);
 		insertionsort(numarray);
 		Util.print("Insertion Sort Result-->", numarray);
@@ -13,15 +13,14 @@ public class InsertionSort {
 
 	static void insertionsort(int[] numbers) {
 
-		int sourceElement = 0;
-
-		for (int i = 1; i <= numbers.length - 1; i++) {
-			sourceElement = numbers[i];
+		for (int i = 1; i < numbers.length; i++) {
+			int sourceElement = numbers[i];
 			int j = i;
-			for (; j > 0 && numbers[j - 1] > sourceElement; j--) {
+			
+			while (j > 0 && numbers[j - 1] > sourceElement) {
 				numbers[j] = numbers[j - 1];
+				j--;
 			}
-
 			numbers[j] = sourceElement;
 		}
 	}
